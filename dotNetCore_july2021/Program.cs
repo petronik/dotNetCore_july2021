@@ -14,30 +14,28 @@ namespace dotNetCore_july2021
 
         static void Main(string[] args)
         {
-            string path1 = "c:\\Documents\\dot_net_core.doc";
-            string path2 = @"c:\Documents\dot_net_core.doc";
-
-            //Regex re = new Regex(@"^[a-zA-Z_]+$");
-            //Console.WriteLine(re.IsMatch("ApP_l_Es"));
-            PrintIsValid("Apples_123", @"^[a-zA-Z_0-9]+$");
-
-            /*
             ConsoleKeyInfo cki;
-
             while (true)
             {
+                string customRegEx = "";
+                string customVal = "";
+                Console.WriteLine("Enter a regular expression (or press ENTER to use the default):");
+                customRegEx = Console.ReadLine();
+                if(customRegEx == "")
+                {
+                    customRegEx = "^[a-z]+$";   
+                }
+                Console.WriteLine("Enter some input: ");
+                customVal = Console.ReadLine();
+                PrintIsValid(customVal, customRegEx);
 
-                Console.WriteLine("do something........");
-                
-                Console.WriteLine("Press ESC to end or any key to try again.");
+                Console.WriteLine("\nPress ESC to end or any key to try again.");
                 cki = Console.ReadKey();
-
                 if (cki.Key == ConsoleKey.Escape)
                 {
                     break;
                 }
             }
-            */
         }
     }
 }
