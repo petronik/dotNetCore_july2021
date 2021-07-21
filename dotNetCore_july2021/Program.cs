@@ -8,51 +8,40 @@ namespace dotNetCore_july2021
 {
     class Program
     {
-        static void PrintValues(IEnumerable myList)
+
+        static void bunchOfThreeToWords(string part) // part = 185
         {
-            foreach (Object obj in myList)
+            string words = "";
+            if (part.Length < 3)
             {
-                Console.Write(" {0}", obj);
+                words = part.Insert(1, "F");
             }
+
+            Console.WriteLine(words);
         }
-        static void ToWords(string numb)
+            static void Main(string[] args)
         {
-            List<string> toWord = new List<string>();
-            string word = string.Empty;
-            for (int i = 0; i < numb.Length; i++)
+            string input = "18500000000000000000000000000";
+            BigInteger bi = BigInteger.Parse(input);
+
+            string num = bi.ToString("N0");
+
+            Console.WriteLine(" This is num:" + num);
+
+            string[] partsByThree = num.Split(",");
+
+            Console.WriteLine(partsByThree[0]);
+            foreach (var part in partsByThree)
             {
-                if(numb[i] == 1)
-                {
-                    toWord.Add("one");
-                }
-
-                
-                //char ch = numb[i];
-                //if (Char(ch).Equals("o"))
-                //{
-                //    Console.WriteLine(ch);
-                //}
-                //switch (numb[i])
-                //{
-                //    case (char)1: toWord.Add("one"); break;
-                //    case (char)2: toWord.Add("two"); break;
-                //    case (char)3: toWord.Add("three"); break;
-                //    case (char)4: toWord.Add("four"); break;
-                //    case (char)5: toWord.Add("five"); break;
-                //    case (char)6: toWord.Add("six"); break;
-                //    case (char)7: toWord.Add("seven"); break;
-                //    case (char)8: toWord.Add("eight"); break;
-                //    case (char)9: toWord.Add("nine"); break;
-                //}
+                Console.WriteLine("PART IS " + part);
+                //bunchOfThreeToWords(part);
             }
-            Console.Write($"{numb} is " );
-            toWord.ForEach(num => Console.Write(num + " "));
-        }
 
-        static void Main(string[] args)
-        {
-            ToWords("123");
 
+
+
+
+            Console.WriteLine("End of program.");
         }
     }
 }
