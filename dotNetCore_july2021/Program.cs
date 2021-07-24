@@ -38,22 +38,23 @@ namespace dotNetCore_july2021
 
                 res += string.IsNullOrEmpty(res) ? teen : " and " + teen;
             }
-                else
-                {
-                    int ind = Convert.ToInt32(part[1].ToString());
-                    int ind2 = Convert.ToInt32(part[2].ToString());
-                    string tens = tensArr[ind];
-                    string single = unitsMap[ind2];
+            else
+            {
+                int ind = Convert.ToInt32(part[1].ToString());
+                int ind2 = Convert.ToInt32(part[2].ToString());
+                string tens = tensArr[ind];
+                string single = unitsMap[ind2];
 
-                    res += string.IsNullOrEmpty(res) ?
-                        string.IsNullOrEmpty(tens) ? single : tens + " " + single
-                        : " and " + tens + " " + single;
-                }
+                res += string.IsNullOrEmpty(res) ?
+                    string.IsNullOrEmpty(tens) ? single : tens + " " + single
+                    : string.IsNullOrEmpty(tens) && string.IsNullOrEmpty(single) ? "" 
+                    : " and " + tens + " " + single;
+            }
             return res;
         }
             static void Main(string[] args)
         {
-            string input = "18500000000000000000015";
+            string input = "18500000000000000123000715";
             
             BigInteger bi = BigInteger.Parse(input);
 
@@ -68,8 +69,8 @@ namespace dotNetCore_july2021
                 string str = ThreeToWords(partsByThree[i]);
 
                 str = string.IsNullOrEmpty(str) ? ""
-                    : str + " " + suffixesArr[partsByThree.Length - i - 1];
-                ourNumber += str + " ";
+                    : str + " " + suffixesArr[partsByThree.Length - i - 1] + " ";
+                ourNumber += str;
             }
             Console.WriteLine($"ourNumber is {ourNumber}");
 
