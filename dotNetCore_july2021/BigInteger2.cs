@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 
 namespace dotNetCore_july2021
 {
-    class BigInteger2
+    static class BigInteger2
     {
         private static readonly String[] unitsMap = new[] {
             "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
@@ -52,6 +53,25 @@ namespace dotNetCore_july2021
                     : " and " + tens + " " + single;
             }
             return res;
+        }
+
+        public static void ToWords(this BigInteger bi)
+        {
+            string num = bi.ToString("N0");
+
+            string[] partsByThree = num.Split(" ");// 
+
+            string ourNumber = string.Empty;
+
+            for (var i = 0; i < partsByThree.Length; ++i)
+            {
+                string str = ThreeToWords(partsByThree[i]);
+
+                str = string.IsNullOrEmpty(str) ? ""
+                    : str + " " + suffixesArr[partsByThree.Length - i - 1] + " ";
+                ourNumber += str;
+            }
+            Console.WriteLine($"Your number is {ourNumber.ToUpper() }");
         }
 
 

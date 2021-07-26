@@ -6,32 +6,16 @@ using System.Text.RegularExpressions;
 
 namespace dotNetCore_july2021
 {
-    class Program : BigInteger2
+    class Program 
     {
         static void Main(string[] args)
         {
-            string input = "18500000000000000123000715";
+            Console.WriteLine("Please enter a number\n" +
+                "Hint: 18500000000000000123000715");
+            string input = Console.ReadLine();
             
             BigInteger bi = BigInteger.Parse(input);
-
-            string num = bi.ToString("N0");
-
-            string[] partsByThree = num.Split(" ");// 
-
-            string ourNumber = string.Empty;
-
-            for (var i = 0; i < partsByThree.Length; ++i)
-            {
-                string str = ThreeToWords(partsByThree[i]);
-
-                str = string.IsNullOrEmpty(str) ? ""
-                    : str + " " + suffixesArr[partsByThree.Length - i - 1] + " ";
-                ourNumber += str;
-            }
-            Console.WriteLine($"ourNumber is {ourNumber}");
-
-            
-
+            bi.ToWords();
             Console.WriteLine("End of program.");
         }
     }
