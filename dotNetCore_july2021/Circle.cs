@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace dotNetCore_july2021
 {
-    class Circle
+    public class Circle : Shape
     {
-        private double Area;
-        public Circle() { }
-        public Circle(double Radius)
-        {
-
-        }
-
+        public double Radius { get; set; }
+        public override string Color { get; set; }
+        public override double Area => Math.PI * Math.Pow(Radius, 2);
     }
 }
