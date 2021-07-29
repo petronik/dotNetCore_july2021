@@ -7,7 +7,7 @@ using static System.Console;
 namespace dotNetCore_july2021
 {
     
-    class Program
+    class Program : Shape
     {
         static void Main(string[] args)
         {
@@ -30,27 +30,7 @@ namespace dotNetCore_july2021
             }
         }
 
-        public static T FromXmlFile<T>(string file)
-        {
-            XmlSerializer xmls = new XmlSerializer(typeof(T));
-            var xmlContent = File.ReadAllText(file);
-
-            using (StringReader sr = new StringReader(xmlContent))
-            {
-                return (T)xmls.Deserialize(sr);
-            }
-        }
-
-        public static void ToXmlFile<T>(string file, T obj)
-        {
-            using (StringWriter sw =
-                new StringWriter(new StringBuilder()))
-            {
-                XmlSerializer xmls = new XmlSerializer(typeof(T));
-                xmls.Serialize(sw, obj);
-                File.WriteAllText(file, sw.ToString());
-            }
-        }
+        
 
     }
 }
