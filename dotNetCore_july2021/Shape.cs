@@ -6,7 +6,7 @@ namespace dotNetCore_july2021
 {
     [XmlInclude(typeof(Rectangle))]
     [XmlInclude(typeof(Circle))]
-    class Shape
+     public class Shape
     {
         public virtual string Color { get; set; }
         public virtual double Area { get; }
