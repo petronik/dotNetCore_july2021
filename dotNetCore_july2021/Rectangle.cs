@@ -1,6 +1,6 @@
 ﻿namespace dotNetCore_july2021
 {
-    class Rectangle : Shape
+    public class Rectangle : Shape
     {
         public double Height { get; set; }
         public double Width { get; set; }
