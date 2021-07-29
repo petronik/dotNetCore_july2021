@@ -6,8 +6,7 @@ using static System.Console;
 
 namespace dotNetCore_july2021
 {
-    [XmlInclude(typeof(Rectangle))]
-    [XmlInclude(typeof(Circle))]
+    
     class Program
     {
         static void Main(string[] args)
