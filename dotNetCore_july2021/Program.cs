@@ -29,10 +29,22 @@ namespace dotNetCore_july2021
             ToXmlFile(xmlFile, listOfCustomers);
 
             List<Customer> file1 = FromXmlFile<List<Customer>>("UnsecuredData.xml");
-            foreach(Customer item in file1)
+
+            // string sk = ProtectedClass.GenerateSecretKey();
+            string sk = @"\SBO;FK`y4O_fdi8\cj=]uyKnoUC0C\<";
+
+
+
+            for (int i = 0; i < file1.Count; i++)
             {
-                WriteLine($"{item.Name} ");
+                var encrCardNum = ProtectorClass.EncryptString(sk, file1[i].CardNumber);
+                file1[i].CardNumber = encrCardNum;
+                string hashed = ProtectorClass.SaltAndHash(file1[i].Password);
+                file1[i].Password = hashed;
             }
+
+            string ProtectedFile = "protectedFile.xml";
+            ToXmlFile(ProtectedFile, listOfCustomers);
         }
 
         public static T FromXmlFile<T>(string file)
