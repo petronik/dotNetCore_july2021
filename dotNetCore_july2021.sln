@@ -4,8 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetCore_july2021", "dotNetCore_july2021\dotNetCore_july2021.csproj", "{2BA229D3-16AE-4EAC-8A9C-EA69E5A0EF0E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A1B1C51D-16B3-48A5-BF80-6F4D0C3ED1E4} = {A1B1C51D-16B3-48A5-BF80-6F4D0C3ED1E4}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protector", "Protect\Protector.csproj", "{A1B1C51D-16B3-48A5-BF80-6F4D0C3ED1E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Protector", "Protect\Protector.csproj", "{A1B1C51D-16B3-48A5-BF80-6F4D0C3ED1E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
