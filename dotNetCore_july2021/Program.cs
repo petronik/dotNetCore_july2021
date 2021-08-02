@@ -32,10 +32,7 @@ namespace dotNetCore_july2021
 
             // string sk = ProtectedClass.GenerateSecretKey();
             string sk = @"\SBO;FK`y4O_fdi8\cj=]uyKnoUC0C\<";
-
-
-
-            for (int i = 0; i < file1.Count; i++)
+            for (int i = 0; i < file1.Count; i++) //encripting card number and hashing password
             {
                 var encrCardNum = ProtectorClass.EncryptString(sk, file1[i].CardNumber);
                 file1[i].CardNumber = encrCardNum;
@@ -44,7 +41,17 @@ namespace dotNetCore_july2021
             }
 
             string ProtectedFile = "protectedFile.xml";
-            ToXmlFile(ProtectedFile, listOfCustomers);
+            ToXmlFile(ProtectedFile, file1);// creates file with protected data
+
+            WriteLine("Unsecured list of data");
+            foreach (Customer item in listOfCustomers)
+            {
+                WriteLine($"Custormer {item.Name} has card nimber {item.CardNumber} and password {item.Password}");
+            }
+            WriteLine("Protected list of data");
+            WriteLine(FromXmlFile <Customer>(ProtectedFile));
+
+
         }
 
         public static T FromXmlFile<T>(string file)
