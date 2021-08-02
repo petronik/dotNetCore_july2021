@@ -49,7 +49,12 @@ namespace dotNetCore_july2021
                 WriteLine($"Custormer {item.Name} has card nimber {item.CardNumber} and password {item.Password}");
             }
             WriteLine("Protected list of data");
-            WriteLine(FromXmlFile <Customer>(ProtectedFile));
+
+            List<Customer> resObj = FromXmlFile<List<Customer>>(ProtectedFile);
+            foreach(Customer item in resObj)
+            {
+                WriteLine($"Custormer {item.Name} has card nimber {item.CardNumber} and password {item.Password}");
+            }
 
 
         }
