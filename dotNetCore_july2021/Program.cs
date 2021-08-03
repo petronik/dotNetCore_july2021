@@ -39,7 +39,7 @@ namespace dotNetCore_july2021
         {
 
             string file = "OriginalData.xml";
-            Top obj = FromXmlFile<Top>() ;
+            Top obj = FromXmlFile<Top>(file) ;
 
             WriteLine(File.ReadAllText(file));
         }
